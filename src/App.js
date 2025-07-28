@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, query, where, getDocs } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth';
 import './App.css';
+import './index.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
@@ -24,6 +25,12 @@ function App() {
   const [pastNotes, setPastNotes] = useState([]);
   const [user, setUser] = useState(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
 
   useEffect(() => {
     signInAnonymously(auth).catch(console.error);
@@ -79,8 +86,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Daily Notes</h1>
-      <form onSubmit={handleSubmit}>
+      <header className="App-header">
+        <h1>Memories</h1>
+        <p>{currentDate}</p>
+      </header>
+      <form onSubmit={handleSubmit} className="note-form">
+        <p className="prompt">What’s one thing about today?</p>
         <Calendar
           onChange={handleDateChange}
           value={selectedDate}
@@ -90,14 +101,15 @@ function App() {
           onChange={(e) => setNote(e.target.value)}
           maxLength={280}
           placeholder={`Write your note for ${selectedDate.toLocaleDateString()}...`}
+          className="note-input"
         />
-        <button type="submit">Save Note</button>
+        <button type="submit" className="save-button">Save</button>
       </form>
       <div className="past-notes">
         <h2>Memory Reflections</h2>
         {pastNotes.length > 0 ? (
           pastNotes.map((note) => (
-            <div key={note.id} className="note">
+            <div key={note.id} className="note-card">
               <p>{note.content}</p>
               <small>{note.date}</small>
             </div>

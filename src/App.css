@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f9;
+  background-color: #EFEAFF;
 }
 
 .App {
@@ -15,45 +17,77 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
 }
 
-textarea {
+.App-header {
+  text-align: center;
+  color: #1A1A1A;
+}
+
+.App-header h1 {
+  font-size: 2.5em;
+  letter-spacing: 0.1em;
+}
+
+.App-header p {
+  font-size: 1.2em;
+  margin-top: -10px;
+}
+
+.note-form {
+  margin-top: 20px;
+}
+
+.prompt {
+  font-size: 1.2em;
+  color: #1A1A1A;
+}
+
+.note-input {
   width: 100%;
   height: 100px;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid #ddd;
   resize: none;
+  font-family: 'Cormorant Garamond', serif;
 }
 
-button {
+.save-button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: #B8C1FF;
+  color: #1A1A1A;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1em;
 }
 
-button:hover {
-  background-color: #0056b3;
+.save-button:hover {
+  background-color: #E8C547;
 }
 
 .past-notes {
   margin-top: 20px;
 }
 
-.note {
-  background-color: #e9ecef;
+.note-card {
+  background-color: #f4f4f9;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.note small {
+.note-card p {
+  margin: 0;
+  color: #1A1A1A;
+}
+
+.note-card small {
   display: block;
   color: #6c757d;
   margin-top: 5px;
@@ -62,12 +96,12 @@ button:hover {
 /* Calendar styles */
 .react-calendar {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   background-color: white;
   border-radius: 8px;
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .react-calendar__tile--now {
@@ -76,8 +110,8 @@ button:hover {
 }
 
 .react-calendar__tile--active {
-  background: #007bff;
-  color: white;
+  background: #B8C1FF;
+  color: #1A1A1A;
   border-radius: 6px;
 }
 
@@ -87,7 +121,7 @@ button:hover {
 
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background: #0056b3;
+  background: #E8C547;
 }
 
 .react-calendar__navigation button {
